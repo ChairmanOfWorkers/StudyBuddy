@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- include head -->
+<head th:replace="fragments/header :: head"></head>
+<body>
+<!-- include nav -->
+<div th:replace="fragments/header :: header"></div>
+
+<section>
+    <h1>Your Profile</h1>
+
+    <form th:action="@{/profile}" method="post">
+        <!-- Full Name -->
+        <label for="fullName">Full Name:</label><br/>
+        <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                th:value="${profile.fullName}"
+                required
+        /><br/><br/>
+
+        <!-- Bio -->
+        <label for="bio">Bio:</label><br/>
+        <textarea
+                id="bio"
+                name="bio"
+                rows="3"
+                cols="40"
+                th:text="${profile.bio}"
+        ></textarea><br/><br/>
+
+        <!-- Availability -->
+        <label for="availability">Availability (comma‑separated):</label><br/>
+        <input
+                type="text"
+                id="availability"
+                name="availability"
+                th:value="${profile.availability != null
+                       ? T(java.lang.String).join(', ', profile.availability)
+                       : ''}"
+                placeholder="Mon 18-20, Wed 09-11, Fri 14-16"
+                style="width: 400px;"
+        /><br/><br/>
+
+        <button type="submit">Save Profile</button>
+    </form>
+</section>
+</body>
+</html>

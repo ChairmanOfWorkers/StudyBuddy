@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<section>
+    <h1>Subjects</h1>
+    <ul>
+        <li th:each="sub : ${subjects}" th:text="${sub.name}"></li>
+    </ul>
+    <form th:action="@{/subjects}" method="post">
+        <input type="text" name="name" placeholder="New subject name" required />
+        <button type="submit">Add Subject</button>
+    </form>
+</section>
+</body>
+</html>

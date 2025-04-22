@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>StudyBuddy</title>
+</head>
+<body th:fragment="header">
+<nav>
+    <a th:href="@{/profile}">Profile</a> |
+    <a th:href="@{/subjects}">Subjects</a> |
+    <a th:href="@{/requests}">Requests</a> |
+    <a th:href="@{/logout}">Logout</a>
+</nav>
+<hr/>
+</body>
+</html>
